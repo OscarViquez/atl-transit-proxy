@@ -8,11 +8,6 @@ const Stations = require("./database/models/station");
 const Amenities = require("./database/models/amenities");
 const StationSchedule = require("./database/models/stationschedule");
 
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   next();
-// });
-
 // this should do the same thing as the code above.
 app.use(cors());
 

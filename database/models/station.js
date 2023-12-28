@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const stationSchema = new Schema({
     _station_key: {
-        type: Number, 
+        type: string, 
         required: true
     },
     name:  {
@@ -18,7 +18,7 @@ const stationSchema = new Schema({
         type: String, 
         required: true
     },
-    amenitites:  {
+    amenities:  {
         type: Array, 
         required: true
     },

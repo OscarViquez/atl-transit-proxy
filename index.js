@@ -8,6 +8,11 @@ const Stations = require("./database/models/station");
 const Amenities = require("./database/models/amenities");
 const StationSchedule = require("./database/models/stationschedule");
 
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   next();
+// });
+
 // this should do the same thing as the code above.
 app.use(cors());
 
@@ -23,8 +28,9 @@ const PORT = process.env.PORT || 3000;
 
 connectDB().then(() => {
   app.listen(PORT, () => console.log(`listening on ${PORT}`));
-})
+});
 // mongo DB api
+
 app.get("/api/get/all/stations", (req, res) => {
   Stations.find({})
     .then((result) => {
@@ -53,10 +59,4 @@ app.get("/api/get/all/stationschedules", (req, res) => {
     .catch((error) => {
       console.log(error);
     });
-});
-
-const PORT = process.env.PORT || 3000;
-
-connectDB().then(() => {
-  app.listen(PORT, () => console.log(`listening on ${PORT}`));
 });

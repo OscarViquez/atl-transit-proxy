@@ -19,6 +19,11 @@ app.get("/arrivals", (req, res) => {
   requestURL("https://www.itsmarta.com/arrivals.aspx", res);
 });
 
+const PORT = process.env.PORT || 3000;
+
+connectDB().then(() => {
+  app.listen(PORT, () => console.log(`listening on ${PORT}`));
+})
 // mongo DB api
 app.get("/api/get/all/stations", (req, res) => {
   Stations.find({})

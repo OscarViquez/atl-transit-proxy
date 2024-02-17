@@ -41,16 +41,20 @@ app.get("/api/get/all/amenities", (req, res) => {
     });
 });
 
-app.get("/api/get/all/stationschedules", (req, res) => {
-  StationSchedule.find({})
-    .then((result) => {
+app.get("/api/get/stationschedule/:station_key", (req, res) => {
+  try {
+    const station_key = req.params.station_key;
+    StationSchedule.findOne({ _station_key: station_key }).then((result) => {
+      if (!result) {
+        res.send({ error: "Station key cannot be found" });
+        return
+      }
       res.send(result);
-    })
-    .catch((error) => {
-      console.log(error);
     });
+  } catch (exception) {
+   console.log( `Error: ${exception}` );
+  }
 });
-
 
 const PORT = process.env.PORT || 3000;
 

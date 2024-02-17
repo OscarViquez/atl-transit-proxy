@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const stationScheduleSchema = new Schema({
-    _schedule_key: {
-        type: Number, 
+    _station_key: {
+        type: String, 
         required: true
     },
-    alllines: {
+    lines: {
         type: Array,
         required: true
     }

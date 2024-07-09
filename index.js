@@ -73,6 +73,7 @@ app.post("/api/get/balance", (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
-connectDB().then(() => {
-  app.listen(PORT, () => console.log(`listening on ${PORT}`));
-});
+// FIXME: Connect to the database and start the server
+// connectDB().then(() => {
+//   app.listen(PORT, () => console.log(`listening on ${PORT}`));
+// });

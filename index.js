@@ -6,6 +6,7 @@ const express = require("express");
 const cors = require("cors");
 
 // Local Module Imports
+const app = express();
 const connectDB = require("./database/database");
 const Stations = require("./database/models/station");
 const Amenities = require("./database/models/amenities");
